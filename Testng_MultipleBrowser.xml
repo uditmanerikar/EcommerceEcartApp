@@ -1,0 +1,15 @@
+<suite name="Ecommerce Application"  parallel="tests" thread-count="2">
+
+    <test name="FirefoxBrowser">
+        <parameter name ="Browser" value="Firefox"/>
+        <classes>
+            <class name="org.example.TestCases.RegisterTest"/>
+        </classes>
+    </test>
+    <test name="EdgeBrowser">
+        <parameter name ="Browser" value="Edge"/>
+        <classes>
+            <class name="org.example.TestCases.RegisterTest"/>
+        </classes>
+    </test>
+</suite>

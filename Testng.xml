@@ -1,0 +1,10 @@
+<suite name="Ecommerce Application" thread-count="2">
+    <test name="Registration Tests">
+        <parameter name="Browser" value="edge" />
+        <classes>
+            <class name="org.example.TestCases.RegisterTest"/>
+        </classes>
+    </test>
+</suite>
+
+
