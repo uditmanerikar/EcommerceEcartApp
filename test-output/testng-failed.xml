@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [Ecommerce Application]">
+  <test thread-count="2" name="Registration Tests(failed)">
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="org.example.TestCases.RegisterTest">
+        <methods>
+          <include name="LoginTest" invocation-numbers="0"/>
+          <include name="killbrowser"/>
+          <include name="Register" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.example.TestCases.RegisterTest -->
+    </classes>
+  </test> <!-- Registration Tests(failed) -->
+</suite> <!-- Failed suite [Ecommerce Application] -->

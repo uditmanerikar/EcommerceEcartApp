@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,9 +27,23 @@ public class BaseClass {
             throw new IllegalArgumentException("Browser type cannot be null or empty.");
         }
         switch (Br.toLowerCase()){
-            case "chrome" :
-                driver =new ChromeDriver();
+//            case "chrome" :
+//               // driver =new ChromeDriver();
+//                WebDriverManager.chromedriver().setup();
+//               ChromeOptions options = new ChromeOptions();
+//                options.addArguments("--guest", "--remote-allow-origins=*");
+//                System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ojas2\\IdeaProjects\\EcommerceApplicationAutomation\\Driverlocation\\chromedriver.exe");
+//                WebDriver driver = new ChromeDriver(options);
+//                break;
+            case "chrome":
+                WebDriverManager.chromedriver().setup(); // automatically handles version & path
+
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--guest", "--remote-allow-origins=*");
+
+                driver = new ChromeDriver(options); // ✅ assigning to class-level driver
                 break;
+
             case "firefox" :
                 WebDriverManager.edgedriver().setup();
                 FirefoxOptions e = new FirefoxOptions();
@@ -37,10 +52,12 @@ public class BaseClass {
                 break;
             case "edge" :
                WebDriverManager.edgedriver().setup();
+               WebDriverManager.edgedriver().avoidBrowserDetection().cachePath("drivers").setup();
                EdgeOptions e1 = new EdgeOptions();
-                e1.addArguments("--guest", "--remote-allow-origins=*");
-                driver =new EdgeDriver(e1);
-                break;
+               e1.addArguments("--guest", "--remote-allow-origins=*");
+               driver =new EdgeDriver(e1);
+               break;
+
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + Br);
 

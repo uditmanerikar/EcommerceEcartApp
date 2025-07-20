@@ -1,8 +1,8 @@
 package org.example.TestCases;
-
 import org.example.PageObjects.BaseClass;
 import org.example.PageObjects.HomePage;
 import org.example.PageObjects.Loginpage;
+import org.example.PageObjects.Product_Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -34,15 +34,16 @@ public class RegisterTest extends BaseClass {
     public void LoginTest(String Browser) throws IOException, InterruptedException {
         //BaseClass baseClass = new BaseClass();
         baseClass.setup(Browser);
-        Loginpage l=new Loginpage(driver);
-        HomePage h=new HomePage(driver);
+        Loginpage l = new Loginpage(driver);
+        HomePage h = new HomePage(driver);
         l.login(baseClass.getproperty("email"), baseClass.getproperty("password"));
         h.getitems("Cameras");
-
+        Assert.assertTrue(h.isVisible());
+        Product_Page p = new Product_Page(driver);
+        p.seelctitem("Nikon D300");
     }
-
-    @AfterMethod
-    public void killbrowser(){
-        // baseClass.TearDown();
-    }
+    //@AfterMethod
+//    public void killbrowser(){
+//        TearDown();
+//    }
 }
