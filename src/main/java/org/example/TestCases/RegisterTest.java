@@ -1,4 +1,5 @@
-package org.example.TestCases;
+package org.example.TestCases;//package org.example.TestCases;
+//import org.example.PageObjects.BaseClass;
 import org.example.PageObjects.BaseClass;
 import org.example.PageObjects.HomePage;
 import org.example.PageObjects.Loginpage;
@@ -41,7 +42,30 @@ public class RegisterTest extends BaseClass {
         Assert.assertTrue(h.isVisible());
         Product_Page p = new Product_Page(driver);
         p.seelctitem("Nikon D300");
+        double value=p.gettextqty();//98
+        Thread.sleep(5000);
+        p.addqty(2);
+        p.addtocart();
+        String cartvaluefinal=p.getcarttext();
+        Assert.assertEquals(value*2, cartvaluefinal, "Quantity does not match!");
     }
+//    @Test(priority = 3)
+//    @Parameters("Browser")
+//    public void validateproduct(String Browser) throws IOException, InterruptedException {
+//        baseClass.setup(Browser);
+//        Product_Page p = new Product_Page(driver);
+//        p.HaveYouSelectedItem("Nikon D300");
+//        double value=p.gettextqty();
+//        p.addqty(2);
+//        String cartvaluefinal=p.getcarttext();
+//        Assert.assertEquals(value*2, cartvaluefinal, "Quantity does not match!");
+//
+//
+//
+//
+//    }
+
+
     //@AfterMethod
 //    public void killbrowser(){
 //        TearDown();
