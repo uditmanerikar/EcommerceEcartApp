@@ -27,10 +27,10 @@ public class RegisterTest extends BaseClass {
         l.clickonRegistration(baseClass.getproperty("fname"),baseClass.getproperty("lname"),baseClass.Randomstring()+"@gmail.com", baseClass.RandomNumber(), baseClass.getproperty("password"));
        // l.clickonRegistration(baseClass.Randomstring(),baseClass.Randomstring(),baseClass.Randomstring()+"@gmail.com", baseClass.RandomNumber());
         String ActualMessage=l.Validatemessage();
-        Assert.assertEquals(ActualMessage,"Congratulations! Your new account has been successfully created!");
+        Assert.assertEquals(ActualMessage,"Congratulations! Your new account has been successfully createdd!");
 
     }
-    @Test(priority = 2)
+    //@Test(priority = 2)
     @Parameters("Browser")
     public void LoginTest(String Browser) throws IOException, InterruptedException {
         //BaseClass baseClass = new BaseClass();

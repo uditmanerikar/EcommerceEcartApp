@@ -1,11 +1,8 @@
 <suite name="Ecommerce Application" thread-count="2">
-    <listeners>
-        <listener class-name = "org.example.ExtentReports.Listeners" />
-    </listeners>
     <test name="Registration Tests">
         <parameter name="Browser" value="chrome" />
         <classes>
-            <class name="org.example.TestCases.RegisterTest"/>
+            <class name="org.example.TestCases.RegitrationLoginDataProvider"/>
         </classes>
     </test>
 </suite>
